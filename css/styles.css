@@ -1,0 +1,147 @@
+/*Media Query*/
+@media screen and (max-width: 375px) {
+    main {
+        padding: 0 1em;
+    }
+
+    .card-title+p {
+        padding: 0;
+    }
+}
+
+/*Hover States*/
+#annual-plan-container>a:hover {
+    color: hsl(245, 67%, 59%);
+}
+
+#annual-plan-container+.btn:hover {
+    background-color: hsl(245, 67%, 59%);
+}
+
+.btn:nth-last-child(-n + 1):hover {
+    color: hsl(223, 47%, 23%);
+}
+
+/*?Why do I need flex-wrap: wrap, for align-content: center, to work?*/
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+/*".card-body>h1" has a higher specificty than ".card-title". 
+  WHY? To override bootstrap's set margin-bottom of "var(--bs-card-title-spacer-y);".*/
+.card-body>h1,
+h2 {
+    /**The Bootstrap font-size set for h2-s works perfectly with our h1.*/
+    font-size: calc(1.325em + .9vw);
+    color: hsl(223, 47%, 23%);
+    font-weight: 900;
+    margin-bottom: 1em;
+}
+
+/*Setting body text, price, and button color to grey :D*/
+h1+p,
+#annual-plan-container>div>p,
+.btn:nth-last-child(-n + 1) {
+    color: #808080a6;
+}
+
+.card-img-top {
+    width: 100%;
+    /*Bootstrap cards are weird.*/
+    border-radius: 20px 20px 0 0;
+}
+
+/*The max-width of .card is 450px, so is the image's max-width then :D*/
+.card {
+    max-width: 450px;
+    font-size: 1em;
+    /*Bootstrap cards are weird.*/
+    border-radius: 20px;
+}
+
+/*Container that holds everything under the image-hero.*/
+.card-body {
+    padding: 2em;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+h1,
+.card-body>p {
+    text-align: center;
+}
+
+/*Body text underneath "Order Summary"*/
+h1+p {
+    padding: 0 2em;
+}
+
+/*This container holds the music note SVG, a div that contains the price texts, 
+  and the "change" link.*/
+#annual-plan-container {
+    border-radius: 15px;
+    background-color: hsl(225, 100%, 98%);
+
+    box-sizing: content-box;
+    max-height: 48px;
+    padding: 1em;
+    margin-bottom: 1em;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*"Annual-plan>div" contains the "Annual Plan $59.99/year" text.*/
+#annual-plan-container>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1em;
+}
+
+/*The H2 (Annual Plan) and P ($59.99/year) have no margin.*/
+#annual-plan-container>div>* {
+    margin: 0;
+}
+
+/*Pretty self-explanatory.*/
+#annual-plan-container>div>h2 {
+    font-size: 1em;
+}
+
+/*?Why did "justify-self: flex-end" not work? I had to use a margin instead :(*/
+#annual-plan-container>a {
+    color: hsl(245, 75%, 52%);
+    margin-left: auto;
+    align-self: center;
+}
+
+/*"Change" link and button FONT WEIGHT*/
+#annual-plan-container>a,
+.btn {
+    font-weight: 700;
+}
+
+/*Buttons*/
+.btn {
+    width: 100%;
+    border: 0;
+    padding: 12px;
+}
+
+/*Top Button*/
+#annual-plan-container+.btn {
+    color: white;
+    background-color: hsl(245, 75%, 52%);
+    box-shadow: 3px 6px 16px 3px rgb(0 0 0 / 25%);
+    margin-bottom: 1rem;
+}
+
+/*Bottom Button*/
+.btn:nth-last-child(-n + 1) {
+    background-color: white;
+}
